@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+    <asset>
+        <contributor>
+            <authoring_tool>CINEMA4D 17.048 COLLADA Exporter</authoring_tool>
+        </contributor>
+        <created>2016-08-14T04:48:56Z</created>
+        <modified>2016-08-14T04:48:56Z</modified>
+        <unit meter="0.01" name="centimeter"/>
+        <up_axis>Y_UP</up_axis>
+    </asset>
+    <library_geometries>
+        <geometry id="ID3">
+            <mesh>
+                <source id="ID4">
+                    <float_array id="ID5" count="12">-80.8332 -33 46.669 80.8332 -33 46.669 0 -33 -93.3381 0 99 -0</float_array>
+                    <technique_common>
+                        <accessor count="4" source="#ID5" stride="3">
+                            <param name="X" type="float"/>
+                            <param name="Y" type="float"/>
+                            <param name="Z" type="float"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="ID6">
+                    <float_array id="ID7" count="12">0 -1 -0 0 0.333333 0.942809 0.816497 0.333333 -0.471405 -0.816497 0.333333 -0.471405</float_array>
+                    <technique_common>
+                        <accessor count="4" source="#ID7" stride="3">
+                            <param name="X" type="float"/>
+                            <param name="Y" type="float"/>
+                            <param name="Z" type="float"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="ID8">
+                    <float_array id="ID9" count="2">0 1</float_array>
+                    <technique_common>
+                        <accessor count="1" source="#ID9" stride="2">
+                            <param name="S" type="float"/>
+                            <param name="T" type="float"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <vertices id="ID10">
+                    <input semantic="POSITION" source="#ID4"/>
+                </vertices>
+                <polylist count="4" material="">
+                    <input offset="0" semantic="VERTEX" source="#ID10"/>
+                    <input offset="1" semantic="NORMAL" source="#ID6"/>
+                    <input offset="2" semantic="TEXCOORD" source="#ID8" set="0"/>
+                    <vcount>3 3 3 3</vcount>
+                    <p>2 0 0 1 0 0 0 0 0 1 1 0 3 1 0 0 1 0 2 2 0 3 2 0 1 2 0 0 3 0 3 3 0 2 3 0</p>
+                </polylist>
+            </mesh>
+        </geometry>
+    </library_geometries>
+    <library_visual_scenes>
+        <visual_scene id="ID1">
+            <node id="ID2" name="Platonic">
+                <translate sid="translate">0 0 -0</translate>
+                <rotate sid="rotateY">0 1 0 -0</rotate>
+                <rotate sid="rotateX">1 0 0 0</rotate>
+                <rotate sid="rotateZ">0 0 1 -0</rotate>
+                <scale sid="scale">1 1 1</scale>
+                <instance_geometry url="#ID3"/>
+            </node>
+        </visual_scene>
+    </library_visual_scenes>
+    <scene>
+        <instance_visual_scene url="#ID1"/>
+    </scene>
+</COLLADA>

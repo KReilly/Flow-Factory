@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDisplayName</key>
+	<string>Recalibrate</string>
+	<key>CFBundleExecutable</key>
+	<string>Recalibrate</string>
+	<key>CFBundleIconFile</key>
+	<string>LeapControlPanelLogo</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.leapmotion.Recalibrate</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Recalibrate</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>2.3.1+31549</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.3.1+31549</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.7.0</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>LSMultipleInstancesProhibited</key>
+	<true/>
+	<key>LSHasLocalizedDisplayName</key>
+	<true/>
+</dict>
+</plist>

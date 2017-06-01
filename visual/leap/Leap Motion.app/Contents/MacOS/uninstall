@@ -1,0 +1,33 @@
+#!/bin/bash -e
+
+if [ $USER != root ]; then
+  sudo "$0"
+  exit $?
+fi
+
+echo -n "Uninstalling Leap Motion... "
+killall -SIGTERM "Leap Motion" "Visualizer" "Recalibrate" "Orientation" &> /dev/null || true
+sleep 1
+killall -SIGKILL "Leap Motion" "Visualizer" "Recalibrate" "Orientation" &> /dev/null || true
+PS_APPHOME="$(ps ax | grep Home.app/Contents/MacOS/node-webkit | egrep -v 'bash|grep' | sed 's/^ *//' | cut -d ' ' -f 1)"
+[ -z "$PS_APPHOME" ] || kill -SIGTERM $PS_APPHOME
+
+launchctl unload -w -F /Library/LaunchDaemons/com.leapmotion.leapd.plist &> /dev/null || true
+rm -f /Library/LaunchDaemons/com.leapmotion.leapd.plist
+rm -f /Library/LaunchAgents/com.leapmotion.Leap-Motion.plist
+
+rm -f /Library/Application\ Support/Leap\ Motion/{installtype,lastversion,cert.crt,private.key,config.json}
+rmdir /Library/Application\ Support/Leap\ Motion || true
+CONSOLE_USER=$(/usr/bin/stat -f "%Su" /dev/console)
+rm -f "/Users/$CONSOLE_USER/Library/Application Support/Leap Motion"/{firstrun.sentinel,firstrunv2.sentinel,config.json,lastauth,license.version}
+rmdir "/Users/$CONSOLE_USER/Library/Application Support/Leap Motion" || true
+rm -rf "/Users/$CONSOLE_USER/Library/Application Support/Airspace"
+rm -rf "/Users/$CONSOLE_USER/Library/Application Support/AirspaceApps"
+rm -rf "/Users/$CONSOLE_USER/Applications/AirspaceApps"
+
+rm -rf /Applications/Leap\ Motion.app
+rm -rf /Applications/Leap\ Motion\ App\ Home.app
+rm -rf /Applications/Leap\ Motion\ Orientation.app
+pkgutil --forget com.leapmotion.pkg &> /dev/null || true
+killall -1 installd &> /dev/null || true
+echo done
